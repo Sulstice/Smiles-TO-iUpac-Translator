@@ -41,7 +41,7 @@ def get_train_tfrecord(num_shards,input_tensor_train,target_tensor_train,file_in
     sub_split_input = input_tensor_train[i * subsets_num: (i + 1) * subsets_num]
     sub_split_target = target_tensor_train[i * subsets_num: (i + 1) * subsets_num]
 
-    tfrecord_name = 'tfrecords_iupac_30mil/'+ 'train-%02d.tfrecord' % file_index
+    tfrecord_name = 'tfrecords_iupac_30mil/'+ 'mother_nature.tfrecord' % file_index
     writer = tf.io.TFRecordWriter(tfrecord_name)
     counter = 0
     for j in (range(len(sub_split_input))):
