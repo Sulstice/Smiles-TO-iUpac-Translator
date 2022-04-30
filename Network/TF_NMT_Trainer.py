@@ -102,7 +102,7 @@ with strategy.scope():
 
 		return tf.reduce_mean(loss_)
 
-checkpoint_path = 'gs://tpu-test-koh/iupac/training_checkpoints'
+checkpoint_path = '.'
 ckpt = tf.train.Checkpoint(optimizer=optimizer,encoder=encoder,decoder=decoder)
 ckpt_manager = tf.train.CheckpointManager(ckpt, checkpoint_path, max_to_keep=50)
 
