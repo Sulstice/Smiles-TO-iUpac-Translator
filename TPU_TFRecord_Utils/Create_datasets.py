@@ -22,7 +22,8 @@ for gpu in gpus:
 f = open('Training_Report.txt' , 'w')
 sys.stdout = f
 
-path_to_file = "./SELFIES_to_IUPAC.txt"
+path_to_file = "/content/Smiles-TO-iUpac-Translator/TPU_TFRecord_Utils/SELFIES_to_IUPAC.txt"
+
 print (datetime.now().strftime('%Y/%m/%d %H:%M:%S'),"Network Started", flush=True)
 # Converts the unicode file to ascii
 def unicode_to_ascii(s):
