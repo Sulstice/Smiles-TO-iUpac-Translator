@@ -105,6 +105,8 @@ with strategy.scope():
 checkpoint_path = '.'
 ckpt = tf.train.Checkpoint(optimizer=optimizer,encoder=encoder,decoder=decoder)
 ckpt_manager = tf.train.CheckpointManager(ckpt, checkpoint_path, max_to_keep=50)
+local_device_option = tf.train.CheckpointOptions(experimental_io_device="/job:localhost")
+ckpt.write(checkpoint_path, options=local_device_option)
 
 start_epoch = 0
 if ckpt_manager.latest_checkpoint:
