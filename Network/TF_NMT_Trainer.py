@@ -11,7 +11,7 @@ from datetime import datetime
 import nmt_model
 import re
 
-tpu = tf.distribute.cluster_resolver.TPUClusterResolver(tpu='node-1')
+tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
 print('Running on TPU ', tpu.master())
 
 tf.config.experimental_connect_to_cluster(tpu)
