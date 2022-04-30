@@ -66,7 +66,11 @@ def read_tfrecord(example):
 def get_training_dataset(batch_size = BATCH_SIZE,buffered_size = BUFFER_SIZE):
 
 	options = tf.data.Options()
-	filenames = sorted(tf.io.gfile.glob( "gs://tpu-test-koh/tfrecords_iupac_30mil/*.tfrecord"), key=numericalSort)
+	import os
+	
+	_, _, files = next(os.walk('./'))
+	
+	filenames = sorted([file for file in files if 'tfrecord' in file], key=numericalSort)
 	
 
 	dataset = tf.data.TFRecordDataset(filenames, num_parallel_reads=AUTO)
